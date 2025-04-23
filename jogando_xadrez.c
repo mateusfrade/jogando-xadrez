@@ -1,44 +1,59 @@
 #include <stdio.h>
 
-int main(){
-
-int i = 0, j = 0, k = 0, l = 0; 
-int movimentoDoCavalo = 1;
-
-        printf("Movimento da Torre\n");
-        printf("5 casas para a direita\n");
-    for (int i = 0; i < 5; i++)
-    {
+void movimentoDaTorre (int casas){
+    if (casas > 0){
         printf("Direita\n");
+        movimentoDaTorre (casas - 1);  
     }
-
-        printf("\nMovimento do Bispo\n");
-        printf("5 casas na diagonal para cima e a direita\n");
-    while (j <= 5)
-    {
-        printf("Cima, Direita\n");
-       j++;
-    }
-
-        printf("\nMovimento da Rainha\n");
-        printf("8 casas para a esquerda\n");
-    do
-    {
-        printf("Esquerda\n");
-        k++;
-    } while (k < 8);
-    
-    printf("\nMovimento do Cavalo\n");
-    printf("2 casas para cima e 1 para a direita\n");
-while (movimentoDoCavalo --)
-{
-    for (l = 1; l <= 2; l++)
-    {
-        printf("Cima\n");
-    }
-    printf("Direita\n");
 }
 
- 
+void movimnetoDoBispo (int casas){
+    if (casas > 0){
+        printf("Cima, direita\n");
+        movimnetoDoBispo (casas - 1);
+    }
+}
+
+void movimenetoDaRainha (int casas){
+    if (casas > 0){
+        printf("Esquerda\n");
+        movimenetoDaRainha (casas - 1);
+    }
+}
+
+void movimentoDoCavalo(int casas) {
+    if (casas > 0) {
+        for (int i = 1; i <= 2; i++) {
+            printf("Cima\n");
+        }
+        printf("Direita\n");
+    }
+}
+    
+int main(){
+    int torre = 5, bispo = 5, rainha = 8, cavalo = 3;    
+    
+
+    printf("Movimneto da torre.\n");
+    printf("5 casas para a direita\n");
+
+    movimentoDaTorre(torre);
+
+    printf("\nMovimento do Bispo\n");
+    printf("5 casas na diagonal para cima e a direita\n");
+
+    movimnetoDoBispo(bispo);
+
+    printf("\nMovimento da Rainha\n");
+    printf("8 casas para a esquerda\n");
+
+    movimenetoDaRainha(rainha);
+
+    printf("\nMovimento do Cavalo\n");
+    printf("2 casas para cima e 1 para a direita\n");   
+
+    movimentoDoCavalo(cavalo);
+   
+
     return 0;
 }
